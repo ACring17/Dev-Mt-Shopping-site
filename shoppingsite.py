@@ -83,7 +83,7 @@ def show_shopping_cart():
         melon.total_cost = total_cost
 
         # Add to list
-        cart_melon.append(melon)
+        cart_melons.append(melon)
 
     return render_template("cart.html",
                             cart=cart_melons,
