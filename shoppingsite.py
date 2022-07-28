@@ -6,10 +6,11 @@ put melons in a shopping cart.
 Authors: Joel Burton, Christian Fernandez, Meggie Mahnken, Katie Byers.
 """
 
-from flask import Flask, render_template, redirect, flash, session
+from flask import Flask, render_template, redirect, flash, session, request
 import jinja2
 
 import melons
+import customers
 
 app = Flask(__name__)
 
@@ -131,6 +132,8 @@ def process_login():
 
     email = request.form.get('email')
     password = request.form.get('password')
+
+    user = customers.get_by_email(email)
 
     if not user:
         flash("No such email address.")
